@@ -2,4 +2,4 @@
 
 Add string delimiter for multi-line HTML.
 
-![ss](./ss.gif)
+![ss](https://raw.githubusercontent.com/nakajmg/atom-html-to-string/master/ss.gif)
