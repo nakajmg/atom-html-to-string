@@ -1,12 +1,13 @@
 module.exports =
   activate: (state) ->
     atom.workspaceView.command 'htmlToString:convert', => @convert()
+    atom.workspaceView.command 'htmlToString:deconvert', => @deconvert()
   
   convert: ->
-    editor = atom.workspace.getActiveTextEditor()
+    editor = atom.workspace.getActiveEditor()
     return if !editor
-    selectedText = editor.getSelectedText()
-    selection = atom.workspace.getActiveEditor().getSelection()
+    
+    selection = editor.getSelection()
     selectedText = selection.getText()
     convertText = selectedText.split('\n').map((line) =>
       trimedText = line.trimLeft()
@@ -16,6 +17,28 @@ module.exports =
         space += ' '
       return "#{space}'#{line.trimLeft()}'"
     ).join(' +\n')
+    
+    selection.insertText(convertText,
+      select: true
+    )
+
+  deconvert: ->
+    editor = atom.workspace.getActiveEditor()
+    return if !editor
+    
+    selection = editor.getSelection()
+    selectedText = selection.getText()
+    convertText = selectedText.split('\n').map((line) =>
+      trimedText = line.trim()
+        .replace(/\s?\+\s?/, '')
+        .replace(/^'/, '')
+        .replace(/'$/, '')
+      spaceCount = line.indexOf(trimedText)
+      space = ''
+      for i in [0...spaceCount-1]
+        space += ' '
+      return "#{space}#{trimedText}"
+    ).join('\n')
     
     selection.insertText(convertText,
       select: true

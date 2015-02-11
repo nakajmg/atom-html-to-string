@@ -4,7 +4,8 @@
   "version": "0.1.2",
   "description": "Add string delimiter for multi-line HTML.",
   "activationCommands": {
-    "atom-workspace": "htmlToString:convert"
+    "atom-workspace": "htmlToString:convert",
+    "atom-workspace": "htmlToString:deconvert"
   },
   "repository": "https://github.com/nakajmg/atom-html-to-string",
   "license": "MIT",
