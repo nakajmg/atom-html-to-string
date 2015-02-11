@@ -1,0 +1,16 @@
+{
+  "name": "html-to-string",
+  "main": "./lib/html-to-string",
+  "version": "0.0.1",
+  "description": "Add string delimiter for multi-line HTML.",
+  "activationCommands": {
+    "atom-workspace": "htmlToString:convert"
+  },
+  "repository": "https://github.com/nakajmg/atom-html-to-string",
+  "license": "MIT",
+  "engines": {
+    "atom": ">0.50.0"
+  },
+  "dependencies": {
+  }
+}

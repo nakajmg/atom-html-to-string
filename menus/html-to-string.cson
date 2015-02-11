@@ -1,0 +1,22 @@
+# See https://atom.io/docs/latest/creating-a-package#menus for more details
+'context-menu':
+  'atom-text-editor': [
+    {
+      'label': 'Convert html-to-string'
+      'command': 'htmlToString:convert'
+    }
+  ]
+'menu': [
+  {
+    'label': 'Packages'
+    'submenu': [
+      'label': 'html-to-string'
+      'submenu': [
+        {
+          'label': 'Convert'
+          'command': 'htmlToString:convert'
+        }
+      ]
+    ]
+  }
+]
